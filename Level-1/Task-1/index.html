@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rahul Kumar – Software Developer, BCA student, Python and machine learning project portfolio." />
+  <title>Rahul Kumar | Portfolio</title>
+
+  <!-- Google Fonts (optional; falls back to system fonts offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAVIGATION ===================== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="logo">c2rahulkr</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About Me</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Hello, I'm</span>
+          <h1>Rahul <span class="gradient-text">Kumar</span></h1>
+          <p class="typed-line">I build <span id="typed" class="typed"></span><span class="cursor">|</span></p>
+          <p class="hero-desc">
+            Aspiring Software Developer and BCA student at Galgotias University with a strong interest in Python development and Machine Learning. Experienced in building practical applications and developing machine learning projects. Passionate about problem-solving, exploring new technologies, and creating efficient software solutions.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="#projects" class="btn btn-outline">View My Projects</a>
+          </div>
+          
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-img-frame">
+            <img src="images/hero.jpg" alt="Rahul Kumar – portrait" />
+          </div>
+          
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+<div class="about-content reveal">
+          <span class="section-tag">About me</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+
+          <p>I am a Bachelor of Computer Applications (BCA) student at Galgotias University with a strong foundation in programming and software development. I have practical experience working with C, C++, Java, and Python, along with hands-on experience in Machine Learning, Data Analysis, and Web Development. Through academic and personal projects, I have developed skills in problem-solving, data preprocessing, model development, and application development. I am eager to learn emerging technologies and apply my technical knowledge to build efficient, practical, and user-focused software solutions.</p>
+<a href="resume/resume.pdf" class="btn btn-primary" download="Rahul_Kumar_Resume.pdf">⬇ Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">What I work with</span>
+          <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-top"><span class="skill-icon">💻</span><h3>Programming</h3></div>
+            <p class="skill-description">C · C++ · Java · Python</p>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-top"><span class="skill-icon">📊</span><h3>Data & Machine Learning</h3></div>
+            <p class="skill-description">Python · Pandas · NumPy · Scikit-learn · CatBoost · Data Cleaning · Model Evaluation</p>
+          </article>
+<article class="skill-card reveal">
+            <div class="skill-top"><span class="skill-icon">🌐</span><h3>Web & APIs</h3></div>
+            <p class="skill-description">FastAPI · HTML · CSS · JavaScript</p>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-top"><span class="skill-icon">🗄️</span><h3>Databases</h3></div>
+            <p class="skill-description">SQL · MySQL</p>
+          </article>
+          <article class="skill-card reveal">
+            <div class="skill-top"><span class="skill-icon">🛠️</span><h3>Tools</h3></div>
+            <p class="skill-description">Git · GitHub · Google Colab</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">My work</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-thumb"><img src="images/projects/fcd-classification.jpg" alt="MRI-Based Machine Learning for FCD Type II Classification" /></div>
+            <div class="project-body">
+              <h3>MRI-Based Machine Learning for FCD Type II Classification</h3>
+              <p>Studied whether measurements from brain MRI scans can help tell FCD Type II cases apart from healthy controls. Used 167 subjects and 631 MRI features, and tested Logistic Regression and ExtraTrees with nested 5-fold cross-validation. Logistic Regression reached 70.06% accuracy, while ExtraTrees reached a 0.7676 ROC-AUC. These are early research results, not a medical diagnostic tool.</p>
+              <ul class="tags"><li>Python</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li><li>Logistic Regression</li><li>ExtraTrees</li></ul>
+              <div class="project-links"><a href="documents/FCD_MRI_Project_Presentation.pptx" class="btn btn-sm btn-primary" download>Project Presentation</a></div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-thumb"><img src="images/projects/crop-yield.jpg" alt="Crop Yield Prediction Using Machine Learning" /></div>
+            <div class="project-body">
+              <h3>Crop Yield Prediction Using Machine Learning</h3>
+              <p>Built a system to estimate crop yield using more than 246,000 agricultural records. Cleaned the data, prepared useful features, trained and compared CatBoost models, and checked results using MAE, RMSE and R². Connected the model to a FastAPI backend and a simple web interface.</p>
+              <ul class="tags"><li>Python</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li><li>CatBoost</li><li>FastAPI</li></ul>
+            </div>
+          </article>
+          <article class="project-card reveal">
+          <div class="project-thumb"><img src="images/projects/stock-market.jpg" alt="Stock Market Prediction App" />
+            </div>
+
+  <div class="project-body">
+    <h3>Stock Market Prediction App</h3>
+
+    <p>
+      Developed a Python-based application to analyze historical
+      stock market data and predict potential stock price trends
+      using machine learning techniques.
+    </p>
+
+    <ul class="tags">
+      <li>Python</li>
+      <li>Machine Learning</li>
+      <li>Pandas</li>
+      <li>Streamlit</li>
+    </ul>
+
+    
+  </div>
+</article>
+          <article class="project-card reveal">
+            <div class="project-thumb"><img src="images/projects/image.png" alt="House Recommendation System" /></div>
+            <div class="project-body">
+              <h3>House Recommendation System</h3>
+              <p>Created a system that suggests houses based on the preferences entered by the user.</p>
+              <ul class="tags"><li>Python</li><li>Recommendation System</li></ul>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-thumb"><img src="images/projects/050900.png" alt="BMI Calculator" /></div>
+            <div class="project-body">
+              <h3>BMI Calculator</h3>
+              <p>Created a web calculator that works out BMI from a person’s height and weight.</p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESUME ===================== -->
+    <section class="section section-alt" id="resume">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Background</span>
+          <h2 class="section-title">My <span class="gradient-text">Resume</span></h2>
+        </div>
+
+        <div class="resume-wrap reveal">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <h3>Bachelor of Computer Applications (BCA)</h3>
+              <span class="date">2024 – Present</span>
+              <p>Galgotias University, Greater Noida · CGPA: 9.35</p>
+            </div>
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <h3>Class XII</h3>
+              <span class="date">2020 – 2022</span>
+              <p>Oriental College, Patna · 76.40%</p>
+            </div>
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <h3>Class X</h3>
+              <span class="date">2018 – 2020</span>
+              <p>Manav Sthali Public School, Deoria · 78.80%</p>
+            </div>
+          </div>
+
+          <div class="resume-card">
+            <div class="resume-icon">📄</div>
+            <h3>Rahul Kumar &ndash; Resume</h3>
+            <p>One-page ATS-friendly resume (PDF).</p>
+            <a href="resume/resume.pdf" class="btn btn-primary" download="Rahul_Kumar_Resume.pdf">⬇ Download Resume</a>
+            <a href="resume/resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">View Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Let's talk</span>
+          <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Let's build something together</h3>
+            <p>
+              I’m looking for entry-level Software Developer, Python Developer or Machine Learning Developer opportunities. You can contact me about jobs, projects or collaborations.
+            </p>
+
+            <ul class="socials">
+              <li><a href="https://www.linkedin.com/in/c2rahulkr/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.59V21h-4z"/></svg><span>LinkedIn</span></a></li>
+              <li><a href="https://www.instagram.com/c2rahulkr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 2.3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6zm5.8-3.1a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg><span>Instagram</span></a></li>
+              <li><a href="https://www.facebook.com/c2rahulkr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.3V13h2.8v8h3.4z"/></svg><span>Facebook</span></a></li>
+              <li><a href="https://github.com/c2rahulkr" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 2.1 3.5 1.5.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.3.7 1 .7 1.9v2.8c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9z"/></svg><span>GitHub</span></a></li>
+              <li><a href="mailto:situ8521@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.6 19.4 7zM4 9v8h16V9l-8 6z"/></svg><span>Email</span></a></li>
+            </ul>
+          </div>
+
+          <!--
+            Form opens the visitor's email app via mailto: (no backend needed).
+            The contact form opens the visitor’s email app using the address configured in script.js.
+          -->
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What is this about?" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="logo">Rahul<span>.</span>Kumar</a>
+        <p class="footer-note">BCA student | Python | Software Development | Machine Learning</p>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <ul class="footer-socials">
+        <li><a href="https://www.linkedin.com/in/c2rahulkr/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.59V21h-4z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/c2rahulkr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 2.3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6zm5.8-3.1a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/c2rahulkr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.3V13h2.8v8h3.4z"/></svg></a></li>
+        <li><a href="https://github.com/c2rahulkr" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 2.1 3.5 1.5.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.3.7 1 .7 1.9v2.8c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9z"/></svg></a></li>
+        <li><a href="mailto:situ8521@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.6 19.4 7zM4 9v8h16V9l-8 6z"/></svg></a></li>
+      </ul>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Rahul Kumar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
