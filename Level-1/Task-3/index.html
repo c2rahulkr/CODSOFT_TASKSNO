@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A modern calculator with history, keyboard support and dark mode." />
+  <title>Modern Calculator</title>
+
+  <!-- Digital-style display font (falls back to monospace if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <!-- ================= CALCULATOR ================= -->
+    <section class="calculator" aria-label="Calculator">
+
+      <div class="calc-top">
+        <span class="brand">Calc<span>.</span></span>
+        <button class="icon-btn" id="theme-toggle" aria-label="Switch to dark theme" title="Toggle theme">🌙</button>
+      </div>
+
+      <!-- Display: small line = previous expression, big line = current input / result -->
+      <div class="display">
+        <div class="expression" id="expression" aria-hidden="true"></div>
+        <div class="result" id="result" role="status" aria-live="polite">0</div>
+        <button class="copy-btn" id="copy-btn" title="Copy result">Copy</button>
+      </div>
+
+      <!-- Buttons (CSS Grid, 4 columns x 5 rows) -->
+      <div class="keys" id="keys">
+        <!-- Row 1 -->
+        <button class="key num" data-action="digit" data-value="7">7</button>
+        <button class="key num" data-action="digit" data-value="8">8</button>
+        <button class="key num" data-action="digit" data-value="9">9</button>
+        <button class="key op" data-action="operator" data-value="÷" aria-label="Divide">÷</button>
+
+        <!-- Row 2 -->
+        <button class="key num" data-action="digit" data-value="4">4</button>
+        <button class="key num" data-action="digit" data-value="5">5</button>
+        <button class="key num" data-action="digit" data-value="6">6</button>
+        <button class="key op" data-action="operator" data-value="×" aria-label="Multiply">×</button>
+
+        <!-- Row 3 -->
+        <button class="key num" data-action="digit" data-value="1">1</button>
+        <button class="key num" data-action="digit" data-value="2">2</button>
+        <button class="key num" data-action="digit" data-value="3">3</button>
+        <button class="key op" data-action="operator" data-value="-" aria-label="Subtract">-</button>
+
+        <!-- Row 4 -->
+        <button class="key num" data-action="digit" data-value="0">0</button>
+        <button class="key num" data-action="decimal" aria-label="Decimal point">.</button>
+        <button class="key op" data-action="percent" aria-label="Percent">%</button>
+        <button class="key op" data-action="operator" data-value="+" aria-label="Add">+</button>
+
+        <!-- Row 5 -->
+        <button class="key op" data-action="sign" aria-label="Toggle positive or negative">+/-</button>
+        <button class="key clear" data-action="clear" aria-label="Clear all">C</button>
+        <button class="key del" data-action="delete" aria-label="Delete last character">DEL</button>
+        <button class="key eq" data-action="equals" aria-label="Equals">=</button>
+      </div>
+    </section>
+
+    <!-- ================= HISTORY ================= -->
+    <aside class="history" aria-label="Calculation history">
+      <div class="history-head">
+        <h2>History</h2>
+        <button class="text-btn" id="clear-history">Clear history</button>
+      </div>
+      <ul class="history-list" id="history-list"></ul>
+      <p class="history-empty" id="history-empty">No calculations yet.</p>
+    </aside>
+
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+/* =========================================================
+   Modern Calculator – style.css
+   Colours live in the :root / [data-theme="dark"] blocks.
+   ========================================================= */
+
+/* ---------- 1. Theme variables ---------- */
+:root {
+  --page-bg: #F4F7FB;
+  --body: #2196F3;            /* calculator body */
+  --num: #1976D2;             /* number buttons */
+  --op: #125AA5;              /* operator buttons */
+  --display-bg: #E3F2FD;
+  --display-text: #000000;
+  --display-muted: #5b7a96;
+  --clear: #E53935;
+  --equal: #2E7D32;
+  --del: #F9A825;             /* DEL: distinct amber */
+  --del-text: #1b1b1b;
+  --card: #FFFFFF;
+  --card-text: #1c2a39;
+  --card-muted: #6b7f93;
+  --card-border: #dfe8f1;
+  --body-shadow: 0 25px 50px rgba(33, 150, 243, .35);
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Share Tech Mono", "Courier New", monospace;
+}
+
+[data-theme="dark"] {
+  --page-bg: #0e1726;
+  --body: #1565C0;
+  --num: #0D47A1;
+  --op: #0a3578;
+  --display-bg: #0b1f33;
+  --display-text: #E3F2FD;
+  --display-muted: #7fa6c9;
+  --card: #16233a;
+  --card-text: #e3eefb;
+  --card-muted: #8ba3bd;
+  --card-border: #243652;
+  --body-shadow: 0 25px 50px rgba(0, 0, 0, .55);
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  background: var(--page-bg);
+  color: var(--card-text);
+  overflow-x: hidden;                /* no horizontal scrolling */
+  transition: background .3s, color .3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button { font-family: inherit; cursor: pointer; border: 0; }
+
+/* ---------- 3. Page layout (calculator centred, history beside/below) ---------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 1.5rem 1rem;
+}
+
+/* ---------- 4. Calculator body ---------- */
+.calculator {
+  width: min(360px, 100%);
+  padding: 1.2rem;
+  border-radius: 30px;
+  background: var(--body);
+  box-shadow: var(--body-shadow), inset 0 -5px 0 rgba(0, 0, 0, .15), inset 0 3px 0 rgba(255, 255, 255, .25);
+  transition: background .3s, box-shadow .3s;
+}
+
+.calc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: .8rem; padding: 0 .3rem; }
+.brand { color: #fff; font-weight: 800; font-size: 1.15rem; letter-spacing: .5px; }
+.brand span { color: #BBDEFB; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255, 255, 255, .2); color: #fff; font-size: 1.1rem;
+  transition: background .2s, transform .2s;
+}
+.icon-btn:hover { background: rgba(255, 255, 255, .35); transform: rotate(15deg); }
+
+/* ---------- 5. Display ---------- */
+.display {
+  position: relative;
+  background: var(--display-bg);
+  color: var(--display-text);
+  border-radius: 18px;
+  padding: .7rem 1rem 1rem;
+  margin-bottom: 1.1rem;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, .18);
+  min-height: 128px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  transition: background .3s, color .3s;
+}
+.expression {
+  min-height: 1.4rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--display-muted);
+  text-align: right;
+  white-space: nowrap;
+  overflow-x: auto; scrollbar-width: none;
+}
+.expression::-webkit-scrollbar { display: none; }
+.result {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;                  /* JS shrinks the font so long values fit */
+  margin-top: .2rem;
+}
+.result.error { color: var(--clear); font-size: 1.35rem; padding-block: .6rem; }
+.copy-btn {
+  position: absolute; top: .55rem; left: .7rem;
+  padding: .2rem .65rem; border-radius: 999px;
+  background: rgba(33, 150, 243, .15); color: var(--num);
+  font-size: .75rem; font-weight: 700;
+  transition: background .2s;
+}
+[data-theme="dark"] .copy-btn { color: #90caf9; }
+.copy-btn:hover { background: rgba(33, 150, 243, .3); }
+
+/* ---------- 6. Keys (CSS Grid) ---------- */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .7rem;
+}
+.key {
+  height: 62px;
+  border-radius: 16px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--num);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, .28);
+  transition: transform .08s, box-shadow .08s, filter .2s, background .2s;
+  user-select: none;
+  touch-action: manipulation;
+}
+.key:hover { filter: brightness(1.15); }
+.key:active, .key.pressed { transform: translateY(4px); box-shadow: 0 1px 0 rgba(0, 0, 0, .28); filter: brightness(.95); }
+.key:focus-visible, .icon-btn:focus-visible, .copy-btn:focus-visible, .text-btn:focus-visible, .history-item:focus-visible {
+  outline: 3px solid #fff; outline-offset: 2px;
+}
+
+.key.num   { background: var(--num); }
+.key.op    { background: var(--op); }
+.key.clear { background: var(--clear); }
+.key.del   { background: var(--del); color: var(--del-text); font-size: 1.1rem; }
+.key.eq    { background: var(--equal); }
+.key.op[data-action="sign"] { font-size: 1.1rem; }
+
+/* ---------- 7. History panel ---------- */
+.history {
+  width: min(320px, 100%);
+  max-height: 520px;
+  display: flex; flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 30px rgba(20, 50, 90, .08);
+  transition: background .3s, border-color .3s;
+}
+.history-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: .8rem; }
+.history h2 { font-size: 1.1rem; }
+.text-btn { background: none; color: var(--clear); font-weight: 600; font-size: .85rem; padding: .2rem .4rem; border-radius: 6px; }
+.text-btn:hover { background: rgba(229, 57, 53, .1); }
+
+.history-list { list-style: none; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: .5rem; }
+.history-item {
+  width: 100%; text-align: right; padding: .6rem .8rem; border-radius: 12px;
+  background: var(--page-bg); color: var(--card-text);
+  display: flex; flex-direction: column; gap: .1rem;
+  transition: background .2s, transform .15s;
+}
+.history-item:hover { background: rgba(33, 150, 243, .14); transform: translateX(-3px); }
+.h-expr { font-size: .85rem; color: var(--card-muted); font-family: var(--font-display); overflow-wrap: anywhere; }
+.h-res { font-size: 1.25rem; font-weight: 700; font-family: var(--font-display); overflow-wrap: anywhere; }
+.history-empty { color: var(--card-muted); font-size: .92rem; text-align: center; padding: 1.2rem 0; }
+.history-empty[hidden] { display: none; }
+
+/* ---------- 8. Toast ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 1.5rem; transform: translate(-50%, 20px);
+  background: #1c2a39; color: #fff; padding: .6rem 1.2rem; border-radius: 999px; font-size: .9rem;
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- 9. Responsive ---------- */
+@media (max-width: 760px) {
+  .app { align-items: flex-start; padding-top: 1rem; }
+  .history { max-height: 320px; }
+}
+@media (max-width: 380px) {
+  .calculator { padding: .9rem; border-radius: 24px; }
+  .keys { gap: .55rem; }
+  .key { height: 56px; font-size: 1.2rem; border-radius: 14px; }
+  .result { font-size: 2.3rem; }
+}
+@media (max-height: 640px) and (orientation: landscape) {
+  .key { height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
